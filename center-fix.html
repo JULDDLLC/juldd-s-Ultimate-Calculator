@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JULDD's Calculator - Centered Layout</title>
+    <style>
+        /* This CSS will center the calculators in the Core Math section */
+        #core-math .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(350px, 400px));
+            gap: 20px;
+            justify-content: center;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            #core-math .tools-grid {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>JULDD's Calculator - Centered Layout Fix</h1>
+    <p>To fix the off-balance layout in the Core Math section, add this CSS to your styles.css file:</p>
+    <pre>
+/* Center the calculators in Core Math section */
+#core-math .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(350px, 400px));
+    gap: 20px;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    #core-math .tools-grid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+    }
+}
+    </pre>
+    
+    <h2>Alternative: Add a Third Calculator</h2>
+    <p>If you prefer to add a third calculator to balance the layout, you can use this CSS instead:</p>
+    <pre>
+/* Three-calculator layout for Core Math section */
+#core-math .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 350px));
+    gap: 20px;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    #core-math .tools-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 768px) {
+    #core-math .tools-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+}
+    </pre>
+    
+    <p>Then add a third calculator (like a Percentage Calculator) to the Core Math section.</p>
+</body>
+</html>

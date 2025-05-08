@@ -1,0 +1,21 @@
+{
+  "name": "juldd-calculator",
+  "version": "1.0.0",
+  "description": "JULDD's Ultimate Calculator with centered layout",
+  "main": "index.html",
+  "scripts": {
+    "deploy": "wrangler pages publish ."
+  },
+  "keywords": [
+    "calculator",
+    "math",
+    "finance",
+    "freelance"
+  ],
+  "author": "JULDD",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "wrangler": "^2.0.0"
+  }
+}

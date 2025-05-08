@@ -1,0 +1,17 @@
+/* Center the calculators in Core Math section */
+#core-math .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(350px, 400px));
+    gap: 20px;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    #core-math .tools-grid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+    }
+}

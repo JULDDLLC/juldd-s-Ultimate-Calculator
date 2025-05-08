@@ -1,0 +1,14 @@
+name = "juldd-calculator"
+type = "webpack"
+account_id = ""
+workers_dev = true
+route = ""
+zone_id = ""
+compatibility_date = "2023-05-01"
+
+[site]
+bucket = "."
+entry-point = "."
+
+[env.production]
+name = "juldd-calculator"

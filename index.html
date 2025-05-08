@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JULDD's Ultimate Calculator</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-rgb: 99, 102, 241;
+            --secondary-rgb: 236, 72, 153;
+            --accent-rgb: 139, 92, 246;
+            --success-rgb: 16, 185, 129;
+            --danger-rgb: 239, 68, 68;
+        }
+    </style>
+    <link rel="stylesheet" href="improved-styles.css">
+    <link rel="stylesheet" href="center-fix.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><img src="logo.svg" alt="JULDD Logo" class="header-logo"> JULDD's Ultimate Calculator</h1>
+            <p class="tagline">Calculate with Confidence, Conquer with Precision</p>
+            
+            <div class="theme-switch-wrapper">
+                <span><i class="fas fa-sun"></i></span>
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" checked />
+                    <div class="slider round">
+                        <div class="slider-icons">
+                            <span><i class="fas fa-sun"></i></span>
+                            <span><i class="fas fa-moon"></i></span>
+                        </div>
+                    </div>
+                </label>
+                <span><i class="fas fa-moon"></i></span>
+            </div>
+        </header>
+
+        <!-- Category Navigation -->
+        <div class="category-nav">
+            <div class="category-item active" data-category="core-math">
+                <div class="category-icon"><i class="fas fa-calculator"></i></div>
+                <div class="category-label">Core Math</div>
+            </div>
+            <div class="category-item" data-category="financial">
+                <div class="category-icon"><i class="fas fa-dollar-sign"></i></div>
+                <div class="category-label">Financial</div>
+            </div>
+            <div class="category-item" data-category="practical">
+                <div class="category-icon"><i class="fas fa-tools"></i></div>
+                <div class="category-label">Practical</div>
+            </div>
+            <div class="category-item" data-category="lifestyle">
+                <div class="category-icon"><i class="fas fa-heartbeat"></i></div>
+                <div class="category-label">Lifestyle</div>
+            </div>
+            <div class="category-item" data-category="home">
+                <div class="category-icon"><i class="fas fa-home"></i></div>
+                <div class="category-label">Home</div>
+            </div>
+            <div class="category-item" data-category="work">
+                <div class="category-icon"><i class="fas fa-briefcase"></i></div>
+                <div class="category-label">Work</div>
+            </div>
+            <div class="category-item" data-category="business">
+                <div class="category-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="category-label">Business</div>
+            </div>
+            <div class="category-item" data-category="travel">
+                <div class="category-icon"><i class="fas fa-plane"></i></div>
+                <div class="category-label">Travel</div>
+            </div>
+            <div class="category-item" data-category="education">
+                <div class="category-icon"><i class="fas fa-graduation-cap"></i></div>
+                <div class="category-label">Education</div>
+            </div>
+            <div class="category-item" data-category="freelance">
+                <div class="category-icon"><i class="fas fa-user-tie"></i></div>
+                <div class="category-label">Freelance Calculator</div>
+            </div>
+        </div>
+
+        <!-- Core Math Category -->
+        <div class="category-content active" id="core-math">
+            <div class="category-header">
+                <h2><i class="fas fa-calculator"></i> Core Math Tools</h2>
+                <p>Essential calculators for everyday mathematical operations</p>
+            </div>
+            
+            <div class="tools-grid">
+                <div class="tool-card" id="basic-calculator">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-calculator"></i> Basic Calculator</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="calculator">
+                            <div class="calculator-display">
+                                <div class="calculator-history"></div>
+                                <div class="calculator-current">0</div>
+                            </div>
+                            <div class="calculator-buttons">
+                                <button class="calculator-button clear">C</button>
+                                <button class="calculator-button backspace"><i class="fas fa-backspace"></i></button>
+                                <button class="calculator-button operator">%</button>
+                                <button class="calculator-button operator">÷</button>
+                                <button class="calculator-button number">7</button>
+                                <button class="calculator-button number">8</button>
+                                <button class="calculator-button number">9</button>
+                                <button class="calculator-button operator">×</button>
+                                <button class="calculator-button number">4</button>
+                                <button class="calculator-button number">5</button>
+                                <button class="calculator-button number">6</button>
+                                <button class="calculator-button operator">-</button>
+                                <button class="calculator-button number">1</button>
+                                <button class="calculator-button number">2</button>
+                                <button class="calculator-button number">3</button>
+                                <button class="calculator-button operator">+</button>
+                                <button class="calculator-button number">0</button>
+                                <button class="calculator-button decimal">.</button>
+                                <button class="calculator-button equals">=</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-card" id="scientific-calculator">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-square-root-alt"></i> Scientific Calculator</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="calculator" id="scientific-calculator">
+                            <div class="calculator-display">
+                                <div class="calculator-history"></div>
+                                <div class="calculator-current">0</div>
+                            </div>
+                            <div class="calculator-buttons">
+                                <button class="calculator-button function">sin</button>
+                                <button class="calculator-button function">cos</button>
+                                <button class="calculator-button function">tan</button>
+                                <button class="calculator-button clear">C</button>
+                                <button class="calculator-button function">log</button>
+                                <button class="calculator-button function">ln</button>
+                                <button class="calculator-button function">√</button>
+                                <button class="calculator-button backspace"><i class="fas fa-backspace"></i></button>
+                                <button class="calculator-button function">π</button>
+                                <button class="calculator-button function">e</button>
+                                <button class="calculator-button function">x²</button>
+                                <button class="calculator-button operator">÷</button>
+                                <button class="calculator-button number">7</button>
+                                <button class="calculator-button number">8</button>
+                                <button class="calculator-button number">9</button>
+                                <button class="calculator-button operator">×</button>
+                                <button class="calculator-button number">4</button>
+                                <button class="calculator-button number">5</button>
+                                <button class="calculator-button number">6</button>
+                                <button class="calculator-button operator">-</button>
+                                <button class="calculator-button number">1</button>
+                                <button class="calculator-button number">2</button>
+                                <button class="calculator-button number">3</button>
+                                <button class="calculator-button operator">+</button>
+                                <button class="calculator-button number">0</button>
+                                <button class="calculator-button decimal">.</button>
+                                <button class="calculator-button operator">^</button>
+                                <button class="calculator-button equals">=</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Financial Category -->
+        <div class="category-content" id="financial">
+            <div class="category-header">
+                <h2><i class="fas fa-dollar-sign"></i> Financial Tools</h2>
+                <p>Calculators for managing money and financial planning</p>
+            </div>
+            
+            <div class="tools-grid">
+                <div class="tool-card" id="tip-calculator">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-receipt"></i> Tip Calculator</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="tip-calculator">
+                            <div class="tip-inputs">
+                                <div class="form-group">
+                                    <label for="bill-amount">Bill Amount ($)</label>
+                                    <input type="number" id="bill-amount" min="0" step="0.01">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tip-percentage">Tip Percentage (%)</label>
+                                    <input type="number" id="tip-percentage" value="15" min="0" max="100">
+                                </div>
+                                <div class="form-group">
+                                    <label for="num-people">Number of People</label>
+                                    <input type="number" id="num-people" value="1" min="1">
+                                </div>
+                                <button id="tip-calculate-btn" class="btn-primary">Calculate Tip</button>
+                            </div>
+                            <div class="tip-result">
+                                <div class="tip-amount">
+                                    <h4>Tip Amount</h4>
+                                    <p>$<span id="tip-amount">0.00</span></p>
+                                </div>
+                                <div class="tip-amount">
+                                    <h4>Total Amount</h4>
+                                    <p>$<span id="total-amount">0.00</span></p>
+                                </div>
+                                <div class="tip-amount">
+                                    <h4>Per Person</h4>
+                                    <p>$<span id="per-person-amount">0.00</span></p>
+                                </div>
+                            </div>
+                            <div class="tip-guide">
+                                <h4>Tipping Guide</h4>
+                                <p>Tipping customs vary by country and service quality:</p>
+                                <ul>
+                                    <li><strong>15-20%</strong>: Standard for good service in the US</li>
+                                    <li><strong>10-15%</strong>: Acceptable for average service</li>
+                                    <li><strong>20-25%</strong>: For exceptional service</li>
+                                    <li><strong>0-10%</strong>: Many countries outside the US have different tipping expectations</li>
+                                </ul>
+                                <p>Remember: In some countries, service charges may already be included in the bill.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-card" id="loan-calculator">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-hand-holding-usd"></i> Loan Calculator</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="loan-calculator">
+                            <div class="loan-inputs">
+                                <div class="form-group">
+                                    <label for="loan-amount">Loan Amount ($)</label>
+                                    <input type="number" id="loan-amount" min="0" step="100">
+                                </div>
+                                <div class="form-group">
+                                    <label for="interest-rate">Annual Interest Rate (%)</label>
+                                    <input type="number" id="interest-rate" min="0" max="100" step="0.1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="loan-term">Loan Term (years)</label>
+                                    <input type="number" id="loan-term" min="1" max="50">
+                                </div>
+                                <button id="loan-calculate-btn" class="btn-primary">Calculate Loan</button>
+                            </div>
+                            <div class="loan-result">
+                                <div class="loan-amount">
+                                    <h4>Monthly Payment</h4>
+                                    <p>$<span id="monthly-payment">0.00</span></p>
+                                </div>
+                                <div class="loan-amount">
+                                    <h4>Total Payment</h4>
+                                    <p>$<span id="total-payment">0.00</span></p>
+                                </div>
+                                <div class="loan-amount">
+                                    <h4>Total Interest</h4>
+                                    <p>$<span id="total-interest">0.00</span></p>
+                                </div>
+                            </div>
+                            <div class="loan-chart-container">
+                                <canvas id="loan-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-card" id="crypto-calculator">
+                    <div class="tool-header">
+                        <h3><i class="fab fa-bitcoin"></i> Cryptocurrency Calculator</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="crypto-calculator">
+                            <div class="crypto-inputs">
+                                <div class="form-group">
+                                    <label for="crypto-amount">Amount</label>
+                                    <input type="number" id="crypto-amount" min="0" step="0.00000001" value="1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="crypto-from">From</label>
+                                    <select id="crypto-from">
+                                        <option value="BTC">Bitcoin (BTC)</option>
+                                        <option value="ETH">Ethereum (ETH)</option>
+                                        <option value="USDT">Tether (USDT)</option>
+                                        <option value="BNB">Binance Coin (BNB)</option>
+                                        <option value="SOL">Solana (SOL)</option>
+                                        <option value="XRP">Ripple (XRP)</option>
+                                        <option value="ADA">Cardano (ADA)</option>
+                                        <option value="DOGE">Dogecoin (DOGE)</option>
+                                        <option value="USD">US Dollar (USD)</option>
+                                        <option value="EUR">Euro (EUR)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="crypto-to">To</label>
+                                    <select id="crypto-to">
+                                        <option value="USD">US Dollar (USD)</option>
+                                        <option value="EUR">Euro (EUR)</option>
+                                        <option value="BTC">Bitcoin (BTC)</option>
+                                        <option value="ETH">Ethereum (ETH)</option>
+                                        <option value="USDT">Tether (USDT)</option>
+                                        <option value="BNB">Binance Coin (BNB)</option>
+                                        <option value="SOL">Solana (SOL)</option>
+                                        <option value="XRP">Ripple (XRP)</option>
+                                        <option value="ADA">Cardano (ADA)</option>
+                                        <option value="DOGE">Dogecoin (DOGE)</option>
+                                    </select>
+                                </div>
+                                <button id="crypto-calculate-btn" class="btn-primary">Calculate</button>
+                            </div>
+                            <div class="crypto-result">
+                                <div class="crypto-conversion">
+                                    <h4>Conversion Result</h4>
+                                    <p><span id="crypto-result-amount">0.00</span> <span id="crypto-result-currency">USD</span></p>
+                                </div>
+                                <div class="crypto-rate">
+                                    <h4>Exchange Rate</h4>
+                                    <p>1 <span id="crypto-rate-from">BTC</span> = <span id="crypto-rate-value">0.00</span> <span id="crypto-rate-to">USD</span></p>
+                                </div>
+                            </div>
+                            <div class="crypto-info">
+                                <h4>Cryptocurrency Information</h4>
+                                <div class="crypto-info-details">
+                                    <p><strong>Current Price:</strong> $<span id="crypto-current-price">0.00</span></p>
+                                    <p><strong>24h Change:</strong> <span id="crypto-24h-change">0.00</span>%</p>
+                                    <p><strong>Market Cap:</strong> $<span id="crypto-market-cap">0.00</span></p>
+                                </div>
+                                <div class="crypto-chart-container">
+                                    <canvas id="crypto-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practical Category -->
+        <div class="category-content" id="practical">
+            <div class="category-header">
+                <h2><i class="fas fa-tools"></i> Practical Tools</h2>
+                <p>Useful calculators for everyday tasks and conversions</p>
+            </div>
+            
+            <div class="tools-grid">
+                <div class="tool-card" id="time-calculator">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-clock"></i> Time Calculator</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="time-calculator">
+                            <div class="time-inputs">
+                                <div class="form-group">
+                                    <label>First Time Input</label>
+                                    <div class="time-input-group">
+                                        <div class="form-group">
+                                            <label for="time-hours1">Hours</label>
+                                            <input type="number" id="time-hours1" min="0" max="999">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="time-minutes1">Minutes</label>
+                                            <input type="number" id="time-minutes1" min="0" max="59">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="time-seconds1">Seconds</label>
+                                            <input type="number" id="time-seconds1" min="0" max="59">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="time-operation">Operation</label>
+                                    <select id="time-operation">
+                                        <option value="add">Add</option>
+                                        <option value="subtract">Subtract</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Second Time Input</label>
+                                    <div class="time-input-group">
+                                        <div class="form-group">
+                                            <label for="time-hours2">Hours</label>
+                                            <input type="number" id="time-hours2" min="0" max="999">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="time-minutes2">Minutes</label>
+                                            <input type="number" id="time-minutes2" min="0" max="59">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="time-seconds2">Seconds</label>
+                                            <input type="number" id="time-seconds2" min="0" max="59">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button id="time-calculate-btn" class="btn-primary">Calculate Time</button>
+                            </div>
+                            <div class="time-result">
+                                <h4>Result</h4>
+                                <p><span id="time-result-hours">0</span> hours, <span id="time-result-minutes">0</span> minutes, <span id="time-result-seconds">0</span> seconds</p>
+                            </div>
+                            <div class="time-examples">
+                                <h4>Common Time Calculations</h4>
+                                <ul>
+                                    <li><span>Flight duration: 2h 45m + 1h 30m layover</span> <span>= 4h 15m</span></li>
+                                    <li><span>Meeting time remaining: 1h 30m - 45m</span> <span>= 45m</span></li>
+                                    <li><span>Total workout: 30m warmup + 1h 15m training</span> <span>= 1h 45m</span></li>
+                                    <li><span>Time until deadline: 48h - 36h 30m</span> <span>= 11h 30m</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-card" id="unit-converter">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-exchange-alt"></i> Unit Converter</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="unit-converter">
+                            <div class="unit-inputs">
+                                <div class="form-group">
+                                    <label for="unit-type">Conversion Type</label>
+                                    <select id="unit-type">
+                                        <option value="length">Length</option>
+                                        <option value="weight">Weight</option>
+                                        <option value="temperature">Temperature</option>
+                                        <option value="area">Area</option>
+                                        <option value="volume">Volume</option>
+                                        <option value="speed">Speed</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="unit-from">From</label>
+                                    <select id="unit-from">
+                                        <!-- Options will be populated by JavaScript -->
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="unit-to">To</label>
+                                    <select id="unit-to">
+                                        <!-- Options will be populated by JavaScript -->
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="unit-value">Value</label>
+                                    <input type="number" id="unit-value" step="any">
+                                </div>
+                                <button id="unit-convert-btn" class="btn-primary">Convert</button>
+                            </div>
+                            <div class="unit-result">
+                                <h4>Conversion Result</h4>
+                                <p><span id="unit-result-value">0</span> <span id="unit-result-unit"></span></p>
+                            </div>
+                            <div class="unit-formula">
+                                <h4>Conversion Formula</h4>
+                                <p id="unit-formula-text">Select conversion type to see formula</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lifestyle Category -->
+        <div class="category-content" id="lifestyle">
+            <div class="category-header">
+                <h2><i class="fas fa-heartbeat"></i> Lifestyle Tools</h2>
+                <p>Calculators for health, fitness, and personal well-being</p>
+            </div>
+            
+            <div class="tools-grid">
+                <div class="tool-card" id="calorie-calculator">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-utensils"></i> Calorie & Macro Calculator</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="calorie-calculator">
+                            <div class="calorie-inputs">
+                                <div class="form-group">
+                                    <label for="calorie-age">Age</label>
+                                    <input type="number" id="calorie-age" value="30" min="15" max="100">
+                                </div>
+                                <div class="form-group">
+                                    <label>Gender</label>
+                                    <div class="radio-group">
+                                        <div class="radio-option">
+                                            <input type="radio" id="gender-male" name="calorie-gender" value="male" checked>
+                                            <label for="gender-male">Male</label>
+                                        </div>
+                                        <div class="radio-option">
+                                            <input type="radio" id="gender-female" name="calorie-gender" value="female">
+                                            <label for="gender-female">Female</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="calorie-weight">Weight (kg)</label>
+                                    <input type="number" id="calorie-weight" value="70" min="30" max="300">
+                                </div>
+                                <div class="form-group">
+                                    <label for="calorie-height">Height (cm)</label>
+                                    <input type="number" id="calorie-height" value="175" min="100" max="250">
+                                </div>
+                                <div class="form-group">
+                                    <label for="calorie-activity">Activity Level</label>
+                                    <select id="calorie-activity">
+                                        <option value="sedentary">Sedentary (little or no exercise)</option>
+                                        <option value="light">Lightly active (light exercise 1-3 days/week)</option>
+                                        <option value="moderate" selected>Moderately active (moderate exercise 3-5 days/week)</option>
+                                        <option value="active">Very active (hard exercise 6-7 days/week)</option>
+                                        <option value="very-active">Extra active (very hard exercise & physical job)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="calorie-goal">Goal</label>
+                                    <select id="calorie-goal">
+                                        <option value="lose">Weight Loss</option>
+                                        <option value="maintain" selected>Maintain Weight</option>
+                                        <option value="gain">Weight Gain</option>
+                                    </select>
+                                </div>
+                                <button id="calorie-calculate-btn" class="btn-primary">Calculate</button>
+                            </div>
+                            <div class="calorie-results">
+                                <h4>Your Daily Calorie Needs</h4>
+                                <div class="result-grid">
+                                    <div class="result-item">
+                                        <h5>BMR</h5>
+                                        <p><span id="bmr-result">0</span> calories</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>TDEE</h5>
+                                        <p><span id="tdee-result">0</span> calories</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Goal Calories</h5>
+                                        <p><span id="goal-calories">0</span> calories</p>
+                                    </div>
+                                </div>
+                                <h4>Recommended Macronutrients</h4>
+                                <div class="result-grid">
+                                    <div class="result-item">
+                                        <h5>Protein</h5>
+                                        <p><span id="protein-result">0</span>g</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Carbs</h5>
+                                        <p><span id="carbs-result">0</span>g</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Fat</h5>
+                                        <p><span id="fat-result">0</span>g</p>
+                                    </div>
+                                </div>
+                                <div class="macro-chart-container">
+                                    <canvas id="macro-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-card" id="fitness-calculator">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-running"></i> Fitness Progress Calculator</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="fitness-calculator">
+                            <div class="fitness-inputs">
+                                <div class="form-group">
+                                    <label for="current-weight">Current Weight (kg/lbs)</label>
+                                    <input type="number" id="current-weight" min="30" max="300" step="0.1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="goal-weight">Goal Weight (kg/lbs)</label>
+                                    <input type="number" id="goal-weight" min="30" max="300" step="0.1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="current-bodyfat">Current Body Fat (%)</label>
+                                    <input type="number" id="current-bodyfat" min="3" max="50" step="0.1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="goal-bodyfat">Goal Body Fat (%)</label>
+                                    <input type="number" id="goal-bodyfat" min="3" max="50" step="0.1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="fitness-timeframe">Timeframe (weeks)</label>
+                                    <input type="number" id="fitness-timeframe" min="1" max="52" value="12">
+                                </div>
+                                <button id="fitness-calculate-btn" class="btn-primary">Calculate Progress</button>
+                            </div>
+                            <div class="fitness-results">
+                                <h4>Your Fitness Progress Plan</h4>
+                                <div class="result-grid">
+                                    <div class="result-item">
+                                        <h5>Weekly Weight Change</h5>
+                                        <p><span id="weight-change-result">0</span> kg/lbs</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Weekly Body Fat Change</h5>
+                                        <p><span id="bodyfat-change-result">0</span>%</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Lean Mass Change</h5>
+                                        <p><span id="lean-mass-result">0</span> kg/lbs</p>
+                                    </div>
+                                </div>
+                                <div class="body-type-reference">
+                                    <div class="body-type">
+                                        <div class="body-type-icon"><i class="fas fa-male"></i></div>
+                                        <div class="body-type-name">3-5% Essential</div>
+                                    </div>
+                                    <div class="body-type">
+                                        <div class="body-type-icon"><i class="fas fa-male"></i></div>
+                                        <div class="body-type-name">6-13% Athletic</div>
+                                    </div>
+                                    <div class="body-type">
+                                        <div class="body-type-icon"><i class="fas fa-male"></i></div>
+                                        <div class="body-type-name">14-17% Fit</div>
+                                    </div>
+                                    <div class="body-type">
+                                        <div class="body-type-icon"><i class="fas fa-male"></i></div>
+                                        <div class="body-type-name">18-24% Average</div>
+                                    </div>
+                                    <div class="body-type">
+                                        <div class="body-type-icon"><i class="fas fa-male"></i></div>
+                                        <div class="body-type-name">25%+ Obese</div>
+                                    </div>
+                                </div>
+                                <div class="fitness-chart-container">
+                                    <canvas id="fitness-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-card" id="subscription-tracker">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-calendar-alt"></i> Subscription Tracker</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="subscription-tracker">
+                            <div class="subscription-inputs">
+                                <div class="form-group">
+                                    <label for="subscription-name">Subscription Name</label>
+                                    <input type="text" id="subscription-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="subscription-cost">Monthly Cost ($)</label>
+                                    <input type="number" id="subscription-cost" min="0" step="0.01">
+                                </div>
+                                <div class="form-group">
+                                    <label for="billing-cycle">Billing Cycle</label>
+                                    <select id="billing-cycle">
+                                        <option value="monthly">Monthly</option>
+                                        <option value="quarterly">Quarterly</option>
+                                        <option value="annually">Annually</option>
+                                    </select>
+                                </div>
+                                <button id="add-subscription-btn" class="btn-primary">Add Subscription</button>
+                            </div>
+                            <div class="subscription-summary">
+                                <div class="subscription-total">
+                                    <h4>Monthly Total</h4>
+                                    <p>$<span id="monthly-subscription-total">0</span></p>
+                                </div>
+                                <div class="subscription-total">
+                                    <h4>Annual Total</h4>
+                                    <p>$<span id="annual-subscription-total">0</span></p>
+                                </div>
+                            </div>
+                            <div class="subscription-list-container">
+                                <h4>Your Subscriptions</h4>
+                                <ul id="subscription-list"></ul>
+                            </div>
+                            <div class="subscription-chart-container">
+                                <canvas id="subscription-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Home & Family Category -->
+        <div class="category-content" id="home">
+            <div class="category-header">
+                <h2><i class="fas fa-home"></i> Home & Family Tools</h2>
+                <p>Calculators for home management and family planning</p>
+            </div>
+            
+            <div class="tools-grid">
+                <div class="tool-card" id="renovation-calculator">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-hammer"></i> Renovation Budget Calculator</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="renovation-calculator">
+                            <div class="renovation-inputs">
+                                <div class="form-group">
+                                    <label for="square-footage">Square Footage</label>
+                                    <input type="number" id="square-footage" min="1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="renovation-type">Renovation Type</label>
+                                    <select id="renovation-type">
+                                        <option value="kitchen">Kitchen</option>
+                                        <option value="bathroom">Bathroom</option>
+                                        <option value="basement">Basement</option>
+                                        <option value="whole-house">Whole House</option>
+                                        <option value="addition">Addition</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="quality-level">Quality Level</label>
+                                    <select id="quality-level">
+                                        <option value="basic">Basic (Budget)</option>
+                                        <option value="mid-range" selected>Mid-Range</option>
+                                        <option value="high-end">High-End</option>
+                                        <option value="luxury">Luxury</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="location-factor">Location Cost Factor</label>
+                                    <select id="location-factor">
+                                        <option value="low">Low Cost Area</option>
+                                        <option value="average" selected>Average Cost Area</option>
+                                        <option value="high">High Cost Area</option>
+                                        <option value="very-high">Very High Cost Area</option>
+                                    </select>
+                                </div>
+                                <button id="renovation-calculate-btn" class="btn-primary">Calculate Budget</button>
+                            </div>
+                            <div class="renovation-results">
+                                <h4>Renovation Budget Estimate</h4>
+                                <div class="result-grid">
+                                    <div class="result-item">
+                                        <h5>Total Cost</h5>
+                                        <p>$<span id="total-renovation-cost">0.00</span></p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Materials</h5>
+                                        <p>$<span id="materials-cost">0.00</span></p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Labor</h5>
+                                        <p>$<span id="labor-cost">0.00</span></p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Permits & Fees</h5>
+                                        <p>$<span id="permits-cost">0.00</span></p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Design & Planning</h5>
+                                        <p>$<span id="design-cost">0.00</span></p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Contingency</h5>
+                                        <p>$<span id="contingency-cost">0.00</span></p>
+                                    </div>
+                                </div>
+                                <div class="renovation-chart-container">
+                                    <canvas id="renovation-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-card" id="meal-calculator">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-utensils"></i> Meal Cost Calculator</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="meal-calculator">
+                            <div class="meal-inputs">
+                                <div class="form-group">
+                                    <label for="ingredient-name">Ingredient Name</label>
+                                    <input type="text" id="ingredient-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ingredient-cost">Cost ($)</label>
+                                    <input type="number" id="ingredient-cost" min="0" step="0.01">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ingredient-quantity">Quantity</label>
+                                    <input type="number" id="ingredient-quantity" min="0" step="0.01" value="1">
+                                </div>
+                                <button id="add-ingredient-btn" class="btn-primary">Add Ingredient</button>
+                                
+                                <div class="form-group" style="margin-top: 20px;">
+                                    <label for="meal-servings">Number of Servings</label>
+                                    <input type="number" id="meal-servings" min="1" value="4">
+                                </div>
+                                <button id="calculate-meal-btn" class="btn-secondary">Calculate Meal Cost</button>
+                            </div>
+                            <div class="meal-results">
+                                <h4>Meal Cost Summary</h4>
+                                <div class="result-grid">
+                                    <div class="result-item">
+                                        <h5>Total Cost</h5>
+                                        <p>$<span id="total-meal-cost">0.00</span></p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Cost Per Serving</h5>
+                                        <p>$<span id="cost-per-serving">0.00</span></p>
+                                    </div>
+                                </div>
+                                <div class="ingredient-list">
+                                    <h4>Ingredients</h4>
+                                    <ul id="ingredient-list"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Work & Career Category -->
+        <div class="category-content" id="work">
+            <div class="category-header">
+                <h2><i class="fas fa-briefcase"></i> Work & Career Tools</h2>
+                <p>Calculators for professional life and career planning</p>
+            </div>
+            
+            <div class="tools-grid">
+                <div class="tool-card" id="takehome-calculator">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-money-check-alt"></i> Take-Home Pay Calculator</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="takehome-calculator">
+                            <div class="takehome-inputs">
+                                <div class="form-group">
+                                    <label for="annual-salary">Annual Salary ($)</label>
+                                    <input type="number" id="annual-salary" min="0" step="1000">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pay-frequency">Pay Frequency</label>
+                                    <select id="pay-frequency">
+                                        <option value="weekly">Weekly</option>
+                                        <option value="biweekly" selected>Bi-weekly</option>
+                                        <option value="semimonthly">Semi-monthly</option>
+                                        <option value="monthly">Monthly</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tax-rate">Effective Tax Rate (%)</label>
+                                    <input type="number" id="tax-rate" min="0" max="100" step="0.1" value="25">
+                                </div>
+                                <div class="form-group">
+                                    <label for="retirement-contribution">Retirement Contribution (%)</label>
+                                    <input type="number" id="retirement-contribution" min="0" max="100" step="0.1" value="5">
+                                </div>
+                                <div class="form-group">
+                                    <label for="insurance-premium">Monthly Insurance Premium ($)</label>
+                                    <input type="number" id="insurance-premium" min="0" step="0.01" value="200">
+                                </div>
+                                <div class="form-group">
+                                    <label for="other-deductions">Other Annual Deductions ($)</label>
+                                    <input type="number" id="other-deductions" min="0" step="0.01" value="0">
+                                </div>
+                                <button id="calculate-takehome-btn" class="btn-primary">Calculate Take-Home Pay</button>
+                            </div>
+                            <div class="takehome-results">
+                                <h4>Take-Home Pay Summary</h4>
+                                <div class="result-grid">
+                                    <div class="result-item">
+                                        <h5>Annual Take-Home</h5>
+                                        <p>$<span id="annual-takehome">0.00</span></p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Per-Period Take-Home</h5>
+                                        <p>$<span id="per-period-takehome">0.00</span></p>
+                                    </div>
+                                </div>
+                                <h4>Deductions Breakdown</h4>
+                                <div class="result-grid">
+                                    <div class="result-item">
+                                        <h5>Taxes</h5>
+                                        <p>$<span id="tax-deduction">0.00</span></p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Retirement</h5>
+                                        <p>$<span id="retirement-deduction">0.00</span></p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Insurance</h5>
+                                        <p>$<span id="insurance-deduction">0.00</span></p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Other</h5>
+                                        <p>$<span id="other-deduction">0.00</span></p>
+                                    </div>
+                                </div>
+                                <div class="takehome-chart-container">
+                                    <canvas id="takehome-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-card" id="commute-calculator">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-car"></i> Commute Cost Calculator</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="commute-calculator">
+                            <div class="commute-inputs">
+                                <div class="form-group">
+                                    <label for="commute-distance">One-Way Distance (miles/km)</label>
+                                    <input type="number" id="commute-distance" min="0" step="0.1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="commute-days">Days Per Week</label>
+                                    <input type="number" id="commute-days" min="1" max="7" value="5">
+                                </div>
+                                <div class="form-group">
+                                    <label for="transport-type">Transportation Type</label>
+                                    <select id="transport-type">
+                                        <option value="car" selected>Car</option>
+                                        <option value="public">Public Transportation</option>
+                                    </select>
+                                </div>
+                                <div class="car-inputs">
+                                    <div class="form-group">
+                                        <label for="fuel-cost">Fuel Cost (per gallon/liter)</label>
+                                        <input type="number" id="fuel-cost" min="0" step="0.01">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="fuel-efficiency">Fuel Efficiency (mpg/km per liter)</label>
+                                        <input type="number" id="fuel-efficiency" min="0" step="0.1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="maintenance-cost">Maintenance Cost (per 100 miles/km)</label>
+                                        <input type="number" id="maintenance-cost" min="0" step="0.01">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="parking-cost">Daily Parking Cost ($)</label>
+                                        <input type="number" id="parking-cost" min="0" step="0.01">
+                                    </div>
+                                </div>
+                                <div class="public-inputs">
+                                    <div class="form-group">
+                                        <label for="public-transport-cost">Daily Public Transport Cost ($)</label>
+                                        <input type="number" id="public-transport-cost" min="0" step="0.01">
+                                    </div>
+                                </div>
+                                <button id="calculate-commute-btn" class="btn-primary">Calculate Commute Cost</button>
+                            </div>
+                            <div class="commute-results">
+                                <h4>Commute Cost Summary</h4>
+                                <div class="result-grid">
+                                    <div class="result-item">
+                                        <h5>Annual Cost</h5>
+                                        <p>$<span id="annual-commute-cost">0.00</span></p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Monthly Cost</h5>
+                                        <p>$<span id="monthly-commute-cost">0.00</span></p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Daily Cost</h5>
+                                        <p>$<span id="daily-commute-cost">0.00</span></p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Annual Distance</h5>
+                                        <p><span id="distance-per-year">0</span> miles/km</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Business Category -->
+        <div class="category-content" id="business">
+            <div class="category-header">
+                <h2><i class="fas fa-chart-line"></i> Business Tools</h2>
+                <p>Calculators for entrepreneurs and business planning</p>
+            </div>
+            
+            <div class="tools-grid">
+                <div class="tool-card" id="breakeven-calculator">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-balance-scale"></i> Break-Even Calculator</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="breakeven-calculator">
+                            <div class="breakeven-inputs">
+                                <div class="form-group">
+                                    <label for="fixed-costs">Fixed Costs ($)</label>
+                                    <input type="number" id="fixed-costs" min="0" step="100">
+                                </div>
+                                <div class="form-group">
+                                    <label for="unit-price">Unit Selling Price ($)</label>
+                                    <input type="number" id="unit-price" min="0" step="0.01">
+                                </div>
+                                <div class="form-group">
+                                    <label for="unit-cost">Unit Variable Cost ($)</label>
+                                    <input type="number" id="unit-cost" min="0" step="0.01">
+                                </div>
+                                <button id="calculate-breakeven-btn" class="btn-primary">Calculate Break-Even</button>
+                            </div>
+                            <div class="breakeven-results">
+                                <h4>Break-Even Analysis</h4>
+                                <div class="result-grid">
+                                    <div class="result-item">
+                                        <h5>Contribution Margin</h5>
+                                        <p>$<span id="contribution-margin">0.00</span> per unit</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Break-Even Units</h5>
+                                        <p><span id="breakeven-units">0</span> units</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Break-Even Revenue</h5>
+                                        <p>$<span id="breakeven-revenue">0.00</span></p>
+                                    </div>
+                                </div>
+                                <div class="breakeven-chart-container">
+                                    <canvas id="breakeven-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-card" id="pricing-calculator">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-tags"></i> Product Pricing Calculator</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="pricing-calculator">
+                            <div class="pricing-inputs">
+                                <div class="form-group">
+                                    <label for="product-cost">Product Cost ($)</label>
+                                    <input type="number" id="product-cost" min="0" step="0.01">
+                                </div>
+                                <div class="form-group">
+                                    <label for="desired-margin">Desired Profit Margin (%)</label>
+                                    <input type="number" id="desired-margin" min="0" max="100" step="0.1" value="40">
+                                </div>
+                                <div class="form-group">
+                                    <label for="competitor-price">Competitor Price ($)</label>
+                                    <input type="number" id="competitor-price" min="0" step="0.01">
+                                </div>
+                                <div class="form-group">
+                                    <label for="market-position">Market Position</label>
+                                    <select id="market-position">
+                                        <option value="budget">Budget (20% below competitor)</option>
+                                        <option value="competitive" selected>Competitive (match competitor)</option>
+                                        <option value="premium">Premium (20% above competitor)</option>
+                                        <option value="luxury">Luxury (50% above competitor)</option>
+                                    </select>
+                                </div>
+                                <button id="calculate-pricing-btn" class="btn-primary">Calculate Pricing</button>
+                            </div>
+                            <div class="pricing-results">
+                                <h4>Pricing Strategy Options</h4>
+                                <div class="result-grid">
+                                    <div class="result-item">
+                                        <h5>Cost-Based Price</h5>
+                                        <p>$<span id="cost-based-price">0.00</span></p>
+                                        <p>Profit: $<span id="cost-based-profit">0.00</span></p>
+                                        <p>Margin: <span id="cost-based-margin">0.00</span>%</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Market-Based Price</h5>
+                                        <p>$<span id="market-based-price">0.00</span></p>
+                                        <p>Profit: $<span id="market-based-profit">0.00</span></p>
+                                        <p>Margin: <span id="market-based-margin">0.00</span>%</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Value-Based Price</h5>
+                                        <p>$<span id="value-based-price">0.00</span></p>
+                                        <p>Profit: $<span id="value-based-profit">0.00</span></p>
+                                        <p>Margin: <span id="value-based-margin">0.00</span>%</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-card" id="roi-calculator">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-chart-pie"></i> ROI/Ad Spend Calculator</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="roi-calculator">
+                            <div class="roi-inputs">
+                                <div class="form-group">
+                                    <label for="ad-spend">Ad Spend ($)</label>
+                                    <input type="number" id="ad-spend" min="0" step="0.01">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ad-revenue">Revenue Generated ($)</label>
+                                    <input type="number" id="ad-revenue" min="0" step="0.01">
+                                </div>
+                                <div class="form-group">
+                                    <label for="conversion-rate">Conversion Rate (%)</label>
+                                    <input type="number" id="conversion-rate" min="0" max="100" step="0.01" value="2.5">
+                                </div>
+                                <div class="form-group">
+                                    <label for="average-order-value">Average Order Value ($)</label>
+                                    <input type="number" id="average-order-value" min="0" step="0.01">
+                                </div>
+                                <button id="calculate-roi-btn" class="btn-primary">Calculate ROI</button>
+                            </div>
+                            <div class="roi-results">
+                                <h4>ROI Analysis</h4>
+                                <div class="result-grid">
+                                    <div class="result-item">
+                                        <h5>ROI</h5>
+                                        <p><span id="roi-result">0.00</span>%</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>ROAS</h5>
+                                        <p><span id="roas-result">0.00</span>x</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>CPA</h5>
+                                        <p>$<span id="cpa-result">0.00</span></p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>CLV:CAC Ratio</h5>
+                                        <p><span id="clv-cac-ratio">0.00</span>:1</p>
+                                    </div>
+                                </div>
+                                <div class="roi-chart-container">
+                                    <canvas id="roi-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Travel Category -->
+        <div class="category-content" id="travel">
+            <div class="category-header">
+                <h2><i class="fas fa-plane"></i> Travel & Eco Tools</h2>
+                <p>Calculators for travel planning and environmental impact</p>
+            </div>
+            
+            <div class="tools-grid">
+                <div class="tool-card" id="carbon-calculator">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-leaf"></i> Carbon Footprint Calculator</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="carbon-calculator">
+                            <div class="carbon-inputs">
+                                <div class="form-group">
+                                    <label for="electricity-usage">Monthly Electricity Usage (kWh)</label>
+                                    <input type="number" id="electricity-usage" min="0" step="1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="gas-usage">Monthly Natural Gas Usage (therms)</label>
+                                    <input type="number" id="gas-usage" min="0" step="0.1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="car-miles">Monthly Car Travel (miles/km)</label>
+                                    <input type="number" id="car-miles" min="0" step="1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="flight-hours">Monthly Flight Hours</label>
+                                    <input type="number" id="flight-hours" min="0" step="0.1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="meat-consumption">Monthly Meat Consumption (kg)</label>
+                                    <input type="number" id="meat-consumption" min="0" step="0.1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="waste-production">Monthly Waste Production (kg)</label>
+                                    <input type="number" id="waste-production" min="0" step="0.1">
+                                </div>
+                                <button id="calculate-carbon-btn" class="btn-primary">Calculate Carbon Footprint</button>
+                            </div>
+                            <div class="carbon-results">
+                                <h4>Carbon Footprint Analysis</h4>
+                                <div class="result-grid">
+                                    <div class="result-item">
+                                        <h5>Total Carbon Footprint</h5>
+                                        <p><span id="total-carbon">0.00</span> kg CO₂e</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Compared to Average</h5>
+                                        <p><span id="average-comparison">0.00</span>%</p>
+                                    </div>
+                                </div>
+                                <h4>Breakdown by Category</h4>
+                                <div class="result-grid">
+                                    <div class="result-item">
+                                        <h5>Electricity</h5>
+                                        <p><span id="electricity-carbon">0.00</span> kg CO₂e</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Natural Gas</h5>
+                                        <p><span id="gas-carbon">0.00</span> kg CO₂e</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Car Travel</h5>
+                                        <p><span id="car-carbon">0.00</span> kg CO₂e</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Flights</h5>
+                                        <p><span id="flight-carbon">0.00</span> kg CO₂e</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Meat Consumption</h5>
+                                        <p><span id="meat-carbon">0.00</span> kg CO₂e</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Waste</h5>
+                                        <p><span id="waste-carbon">0.00</span> kg CO₂e</p>
+                                    </div>
+                                </div>
+                                <div class="carbon-chart-container">
+                                    <canvas id="carbon-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-card" id="trip-calculator">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-suitcase"></i> Trip Budget Calculator</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="trip-calculator">
+                            <div class="trip-inputs">
+                                <div class="form-group">
+                                    <label for="trip-duration">Trip Duration (days)</label>
+                                    <input type="number" id="trip-duration" min="1" step="1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="num-travelers">Number of Travelers</label>
+                                    <input type="number" id="num-travelers" min="1" step="1" value="1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="trip-destination">Destination</label>
+                                    <input type="text" id="trip-destination">
+                                </div>
+                                <div class="form-group">
+                                    <label for="transportation-cost">Transportation Cost ($)</label>
+                                    <input type="number" id="transportation-cost" min="0" step="0.01">
+                                </div>
+                                <div class="form-group">
+                                    <label for="accommodation-cost">Accommodation Cost ($ per night)</label>
+                                    <input type="number" id="accommodation-cost" min="0" step="0.01">
+                                </div>
+                                <div class="form-group">
+                                    <label for="food-cost">Food Cost ($ per person per day)</label>
+                                    <input type="number" id="food-cost" min="0" step="0.01">
+                                </div>
+                                <div class="form-group">
+                                    <label for="activities-cost">Activities Cost ($ per person)</label>
+                                    <input type="number" id="activities-cost" min="0" step="0.01">
+                                </div>
+                                <div class="form-group">
+                                    <label for="misc-cost">Miscellaneous Costs ($)</label>
+                                    <input type="number" id="misc-cost" min="0" step="0.01">
+                                </div>
+                                <button id="calculate-trip-btn" class="btn-primary">Calculate Trip Budget</button>
+                            </div>
+                            <div class="trip-results">
+                                <h4>Trip Budget Summary</h4>
+                                <div class="result-grid">
+                                    <div class="result-item">
+                                        <h5>Total Trip Cost</h5>
+                                        <p>$<span id="total-trip-cost">0.00</span></p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Cost Per Person</h5>
+                                        <p>$<span id="cost-per-person">0.00</span></p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Cost Per Day</h5>
+                                        <p>$<span id="cost-per-day">0.00</span></p>
+                                    </div>
+                                </div>
+                                <h4>Cost Breakdown</h4>
+                                <div class="result-grid">
+                                    <div class="result-item">
+                                        <h5>Transportation</h5>
+                                        <p>$<span id="transportation-total">0.00</span></p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Accommodation</h5>
+                                        <p>$<span id="accommodation-total">0.00</span></p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Food</h5>
+                                        <p>$<span id="food-total">0.00</span></p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Activities</h5>
+                                        <p>$<span id="activities-total">0.00</span></p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Miscellaneous</h5>
+                                        <p>$<span id="misc-total">0.00</span></p>
+                                    </div>
+                                </div>
+                                <div class="trip-chart-container">
+                                    <canvas id="trip-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-card" id="jetlag-calculator">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-bed"></i> Jet Lag Calculator</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="jetlag-calculator">
+                            <div class="jetlag-inputs">
+                                <div class="form-group">
+                                    <label for="departure-timezone">Departure Timezone (GMT+/-)</label>
+                                    <input type="number" id="departure-timezone" min="-12" max="14" step="1" value="0">
+                                </div>
+                                <div class="form-group">
+                                    <label for="arrival-timezone">Arrival Timezone (GMT+/-)</label>
+                                    <input type="number" id="arrival-timezone" min="-12" max="14" step="1" value="0">
+                                </div>
+                                <div class="form-group">
+                                    <label for="flight-duration">Flight Duration (hours)</label>
+                                    <input type="number" id="flight-duration" min="1" step="0.5">
+                                </div>
+                                <div class="form-group">
+                                    <label for="travel-direction">Travel Direction</label>
+                                    <select id="travel-direction">
+                                        <option value="east">Eastward (e.g., US to Europe)</option>
+                                        <option value="west">Westward (e.g., Europe to US)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sleep-quality">Your Sleep Quality</label>
+                                    <select id="sleep-quality">
+                                        <option value="poor">Poor (Difficulty sleeping)</option>
+                                        <option value="average" selected>Average</option>
+                                        <option value="good">Good (Adapt easily)</option>
+                                    </select>
+                                </div>
+                                <button id="calculate-jetlag-btn" class="btn-primary">Calculate Jet Lag Recovery</button>
+                            </div>
+                            <div class="jetlag-results">
+                                <h4>Jet Lag Analysis</h4>
+                                <div class="result-grid">
+                                    <div class="result-item">
+                                        <h5>Time Zone Difference</h5>
+                                        <p><span id="timezone-difference">0</span> hours</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Recovery Time</h5>
+                                        <p><span id="recovery-days">0</span> days</p>
+                                    </div>
+                                </div>
+                                <h4>Recovery Recommendations</h4>
+                                <div class="jetlag-recommendations">
+                                    <p><strong>Adjustment Strategy:</strong> <span id="adjustment-strategy"></span></p>
+                                    <p><strong>Light Exposure:</strong> <span id="light-exposure"></span></p>
+                                    <p><strong>Melatonin Timing:</strong> <span id="melatonin-timing"></span></p>
+                                </div>
+                                <div class="jetlag-chart-container">
+                                    <canvas id="jetlag-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Education Category -->
+        <div class="category-content" id="education">
+            <div class="category-header">
+                <h2><i class="fas fa-graduation-cap"></i> Learning & Education Tools</h2>
+                <p>Calculators for educational planning and skill development</p>
+            </div>
+            
+            <div class="tools-grid">
+                <div class="tool-card" id="learning-calculator">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-brain"></i> Learning Curve Calculator</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="learning-calculator">
+                            <div class="learning-inputs">
+                                <div class="form-group">
+                                    <label for="initial-time">Initial Time to Complete Task (minutes)</label>
+                                    <input type="number" id="initial-time" min="1" step="0.1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="learning-rate">Learning Rate (%)</label>
+                                    <input type="number" id="learning-rate" min="1" max="100" step="0.1" value="20">
+                                    <div class="tooltip">
+                                        <i class="fas fa-info-circle"></i>
+                                        <span class="tooltiptext">Typical learning rates: 10-30%. Higher rates mean faster learning.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="repetitions">Number of Repetitions</label>
+                                    <input type="number" id="repetitions" min="1" max="100" step="1" value="10">
+                                </div>
+                                <div class="form-group">
+                                    <label for="skill-complexity">Skill Complexity</label>
+                                    <select id="skill-complexity">
+                                        <option value="simple">Simple (Basic tasks)</option>
+                                        <option value="moderate" selected>Moderate (Multi-step tasks)</option>
+                                        <option value="complex">Complex (Technical skills)</option>
+                                        <option value="very-complex">Very Complex (Expert skills)</option>
+                                    </select>
+                                </div>
+                                <button id="calculate-learning-btn" class="btn-primary">Calculate Learning Curve</button>
+                            </div>
+                            <div class="learning-results">
+                                <h4>Learning Curve Analysis</h4>
+                                <div class="result-grid">
+                                    <div class="result-item">
+                                        <h5>Final Time</h5>
+                                        <p><span id="final-time">0.00</span> minutes</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Total Practice Time</h5>
+                                        <p><span id="total-practice-time">0.00</span> minutes</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Improvement</h5>
+                                        <p><span id="improvement-percentage">0.00</span>%</p>
+                                    </div>
+                                    <div class="result-item">
+                                        <h5>Repetitions to 80% Proficiency</h5>
+                                        <p><span id="proficiency-repetitions">0</span> repetitions</p>
+                                    </div>
+                                </div>
+                                <div class="learning-chart-container">
+                                    <canvas id="learning-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Freelance Calculator Category -->
+        <div class="category-content" id="freelance">
+            <div class="category-header">
+                <h2><i class="fas fa-user-tie"></i> Freelance Rate Calculator</h2>
+                <p>Calculate optimal rates based on your income goals and business expenses</p>
+            </div>
+            
+            <div class="tools-grid">
+                <div class="tool-card" id="freelance-rate-calculator">
+                    <div class="tool-header">
+                        <h3><i class="fas fa-calculator"></i> Freelance Rate Calculator</h3>
+                    </div>
+                    <div class="tool-body">
+                        <div class="freelance-calculator">
+                            <div class="freelance-inputs">
+                                <div class="input-group">
+                                    <label for="target-income">
+                                        Target Monthly Income ($)
+                                        <span class="tooltip" data-tooltip="Your desired monthly income before taxes"><i class="fas fa-question-circle"></i></span>
+                                    </label>
+                                    <input type="number" id="target-income" value="5000" min="0" step="100">
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label for="billable-hours">
+                                        Billable Hours per Week
+                                        <span class="tooltip" data-tooltip="Hours you can bill clients each week"><i class="fas fa-question-circle"></i></span>
+                                    </label>
+                                    <input type="number" id="billable-hours" value="30" min="1" max="168" step="1">
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label for="work-weeks">
+                                        Work Weeks per Month
+                                        <span class="tooltip" data-tooltip="Typically 4, but may vary based on your schedule"><i class="fas fa-question-circle"></i></span>
+                                    </label>
+                                    <input type="number" id="work-weeks" value="4" min="1" max="5" step="0.1">
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label for="non-billable">
+                                        % Time on Non-Billable Work
+                                        <span class="tooltip" data-tooltip="Time spent on admin, marketing, etc."><i class="fas fa-question-circle"></i></span>
+                                    </label>
+                                    <input type="number" id="non-billable" value="30" min="0" max="100" step="1">
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label for="expenses">
+                                        Monthly Business Expenses ($)
+                                        <span class="tooltip" data-tooltip="Software, equipment, subscriptions, etc."><i class="fas fa-question-circle"></i></span>
+                                    </label>
+                                    <input type="number" id="expenses" value="500" min="0" step="50">
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label for="tax-buffer">
+                                        Tax Buffer Percentage (%)
+                                        <span class="tooltip" data-tooltip="Amount to reserve for taxes"><i class="fas fa-question-circle"></i></span>
+                                    </label>
+                                    <input type="number" id="tax-buffer" value="20" min="0" max="100" step="1">
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label for="project-hours">
+                                        Default Project Hours
+                                        <span class="tooltip" data-tooltip="For calculating minimum project rate"><i class="fas fa-question-circle"></i></span>
+                                    </label>
+                                    <input type="number" id="project-hours" value="10" min="1" max="1000" step="1">
+                                </div>
+                                
+                                <div class="calculator-button-container">
+                                    <button id="calculate-rate" class="calculator-action-button">Calculate Rate</button>
+                                    <button id="reset-freelance" class="calculator-action-button secondary">Reset</button>
+                                </div>
+                            </div>
+                            
+                            <div class="freelance-results">
+                                <div class="result-card">
+                                    <div class="result-header">Effective Weekly Billable Hours</div>
+                                    <div class="result-value" id="effective-hours">0</div>
+                                    <div class="result-description">After accounting for non-billable time</div>
+                                </div>
+                                
+                                <div class="result-card primary">
+                                    <div class="result-header">Suggested Hourly Rate</div>
+                                    <div class="result-value" id="hourly-rate">$0</div>
+                                    <div class="result-description">Based on your goals and expenses</div>
+                                    <button id="copy-rate" class="copy-button"><i class="fas fa-copy"></i> Copy Rate</button>
+                                </div>
+                                
+                                <div class="result-card">
+                                    <div class="result-header">Minimum Project Rate</div>
+                                    <div class="result-value" id="project-rate">$0</div>
+                                    <div class="result-description">For a <span id="project-hours-display">10</span>-hour project</div>
+                                </div>
+                                
+                                <div class="result-card">
+                                    <div class="result-header">Annual Income Estimate</div>
+                                    <div class="result-value" id="annual-income">$0</div>
+                                    <div class="result-description">Based on current rate and hours</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>JULDD's Ultimate Calculator &copy; 2025 | Created with <i class="fas fa-heart" style="color: var(--secondary-color);"></i> by JULDD</p>
+            <p>Calculate with Confidence, Conquer with Precision</p>
+            <div class="juldd-signature">JULDD</div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script src="implementation.js"></script>
+</body>
+</html>
