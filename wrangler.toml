@@ -1,14 +1,10 @@
 name = "juldd-calculator"
-type = "webpack"
-account_id = ""
 workers_dev = true
-route = ""
-zone_id = ""
 compatibility_date = "2023-05-01"
-
-[site]
-bucket = "."
-entry-point = "."
-
-[env.production]
-name = "juldd-calculator"
+account_id = "bb076b5c727c04d257eb6d570e3d25c4"
+route = "calc.julddmarketing.com/*"
+main = "script.js"
+kv_namespaces = [
+  { binding = "MY_KV", id = "86c2500a06af40599700b3631befdce8" }
+]
+pages_build_output_dir = "."

@@ -591,7 +591,7 @@ class ScientificCalculator extends BasicCalculator {
 // Real Cryptocurrency Calculator with API
 class CryptocurrencyCalculator {
     constructor() {
-        this.baseUrl = 'https://api.coingecko.com/api/v3';
+        this.baseUrl = 'https://api.coingecko.com/api/v3'; // Base URL for the API
         this.cache = new Map();
         this.cacheExpiry = 60000; // 1 minute cache
         this.cryptoMap = {
@@ -647,6 +647,28 @@ class CryptocurrencyCalculator {
         }
     }
 
+    async calculateCrypto() {
+        const fromCrypto = document.getElementById('crypto-from').value; // Get selected cryptocurrency
+        const toCurrency = document.getElementById('crypto-to').value; // Get selected currency
+        const amount = parseFloat(document.getElementById('crypto-amount').value); // Get amount to convert
+
+        if (isNaN(amount) || amount <= 0) {
+            showToast('Please enter a valid amount', 'error');
+            return;
+        }
+
+        const priceData = await this.getCryptoPrice(fromCrypto, toCurrency);
+        if (priceData) {
+            const rate = priceData[fromCrypto][toCurrency];
+            const result = amount * rate;
+
+            // Update the UI with the result
+            document.getElementById('crypto-result').textContent = `${result.toFixed(8)} ${toCurrency.toUpperCase()}`;
+            document.getElementById('crypto-rate').textContent = `1 ${fromCrypto.toUpperCase()} = ${rate.toFixed(8)} ${toCurrency.toUpperCase()}`;
+        }
+    }
+}
+class YourClass {
     async calculateCrypto() {
         const amount = parseFloat(document.getElementById('crypto-amount').value) || 0;
         const fromSelect = document.getElementById('crypto-from');
